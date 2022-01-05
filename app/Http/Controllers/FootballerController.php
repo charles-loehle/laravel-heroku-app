@@ -8,9 +8,13 @@ use Illuminate\Http\Request;
 class FootballerController extends Controller
 {
     public function index() {
-      $footballers = Footballer::get()->toJson(JSON_PRETTY_PRINT);
+      // $footballers = Footballer::get()->toJson(JSON_PRETTY_PRINT);
 
-      return response($footballers, 200);
+      // return response($footballers, 200);
+
+      $footballers = Footballer::get();
+      //dd($footballers);
+      return view('allFootballers', compact('footballers'));
     }
 
     public function show($id = null) {
